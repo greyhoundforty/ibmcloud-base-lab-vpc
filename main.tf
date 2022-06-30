@@ -35,7 +35,7 @@ module "zone" {
   resource_group = {
     id = data.ibm_resource_group.project.id
   }
-  tags = concat(local.tags, ["region:${var.region}"])
+  tags         = concat(local.tags, ["region:${var.region}"])
   cos_instance = local.cos_instance
 }
 
