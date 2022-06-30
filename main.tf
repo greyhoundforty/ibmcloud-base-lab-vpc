@@ -30,11 +30,13 @@ module "zone" {
   source   = "./modules/zone"
   name     = "${var.prefix}-${each.value.zone}"
   zone     = each.value.zone
+  region   = var.region
   vpc      = { id = ibm_is_vpc.lab.id }
   resource_group = {
     id = data.ibm_resource_group.project.id
   }
   tags = concat(local.tags, ["region:${var.region}"])
+  cos_instance = local.cos_instance
 }
 
 module "security" {
@@ -63,7 +65,9 @@ module "bastion" {
 }
 
 module "dns" {
-  source = "./modules/dns"
+  source       = "./modules/dns"
+  dns_instance = local.dns_instance
+  vpc_crn      = ibm_is_vpc.lab.crn
 }
 
 module "flowlogs" {

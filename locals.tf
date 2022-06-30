@@ -10,6 +10,8 @@ locals {
 
   cloud_image_name = "ibm-ubuntu-22-04-minimal-amd64-1"
   profile          = "cx2-2x4"
+  dns_instance     = var.existing_dns_instance != "" ? data.ibm_resource_instance.dns.0.guid : ibm_resource_instance.dns.0.guid
+  cos_instance     = var.existing_cos_instance != "" ? data.ibm_resource_instance.cos.0.id : ibm_resource_instance.cos.0.id
 }
 
 locals {
