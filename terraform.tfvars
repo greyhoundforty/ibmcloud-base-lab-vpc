@@ -1,0 +1,6 @@
+resource_group_name   = "Default"
+ssh_key_name          = "rt-us-south-europa"
+prefix                = "gh40"
+ibmcloud_api_key      = "5fXDMwt6OrbcBfu0e8NswacA2j6iAC0wIiA4tNVH75uy"
+existing_cos_instance = "rt-lab-cos"
+existing_dns_instance = "rt-lab-dns"
